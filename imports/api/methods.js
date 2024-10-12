@@ -1,9 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import axios from 'axios';
+import axiosRetry from 'axios-retry';
+
+axiosRetry(axios, {
+    retries: 3, // Number of retries (Defaults to 3)
+    retryDelay: axiosRetry.exponentialDelay,
+});
 
 async function getDataFromAPI(url) {
     try {
-        const response = await fetch(url);
+        const response = await axios.post(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
