@@ -10,13 +10,13 @@ export const Hello = () => {
 	const getData = async () => {
 		const res = await Meteor.call('getData');
 
-		try {
-			const response = await fetch('https://api.example.com/data');
-			const data = await response.json();
-			console.log(data);
-		} catch (error) {
-			console.error('Error:', error);
-		}
+		// try {
+		// 	const response = await fetch('https://api.example.com/data');
+		// 	const data = await response.json();
+		// 	console.log(data);
+		// } catch (error) {
+		// 	console.error('Error:', error);
+		// }
 	};
 
 	return (
